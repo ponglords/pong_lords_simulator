@@ -35,6 +35,9 @@ gem 'figaro'
 # Forms
 gem 'simple_form'
 
+# Static asset serving
+gem 'rails_12factor'
+
 # Debugging
 gem 'pry', group: [:development, :test]
 

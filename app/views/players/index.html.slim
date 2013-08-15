@@ -1,0 +1,7 @@
+h1 Current leaderboard
+
+- if @players.empty?
+  h2 None of the players have played a game
+- else
+  ol
+    = render @players

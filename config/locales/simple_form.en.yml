@@ -1,0 +1,15 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Some errors were found, please take a look:"
+    labels:
+      match:
+        winner:
+          player_id: Winner
+        loser:
+          player_id: Loser

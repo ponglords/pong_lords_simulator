@@ -1,6 +1,6 @@
-= form_for @match do |f|
+= simple_form_for @match do |f|
   = f.simple_fields_for :winner do |w|
     = w.input :player_id, collection: @players, include_blank: true, required: false
   = f.simple_fields_for :loser do |l|
     = l.input :player_id, collection: @players, include_blank: true, required: false
-  = f.button "Save", type: :submit, class: "btn"
+  = f.submit "Save", class: "btn"

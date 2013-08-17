@@ -1,0 +1,10 @@
+= simple_form_for(@match, url: doubles_path) do |f|
+  = f.simple_fields_for :first_winner do |w|
+    = w.input :player_id, collection: @players, include_blank: true, required: false
+  = f.simple_fields_for :second_winner do |w|
+    = w.input :player_id, collection: @players, include_blank: true, required: false
+  = f.simple_fields_for :first_loser do |l|
+    = l.input :player_id, collection: @players, include_blank: true, required: false
+  = f.simple_fields_for :second_loser do |l|
+    = l.input :player_id, collection: @players, include_blank: true, required: false
+  = f.submit "Save", class: "btn"

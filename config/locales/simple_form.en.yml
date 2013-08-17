@@ -13,3 +13,11 @@ en:
           player_id: Winner
         loser:
           player_id: Loser
+        first_winner:
+          player_id: Winner 1
+        second_winner:
+          player_id: Winner 2
+        first_loser:
+          player_id: Loser 1
+        second_loser:
+          player_id: Loser 2

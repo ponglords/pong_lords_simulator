@@ -6,7 +6,8 @@ describe PlayersController do
       get 'index'
 
       response.should be_success
-      assigns(:players).should_not be_nil
+      assigns(:elo_players).should_not be_nil
+      assigns(:diversity_index_players).should_not be_nil
     end
   end
 end

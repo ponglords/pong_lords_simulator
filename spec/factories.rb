@@ -1,26 +1,17 @@
 FactoryGirl.define do
-  factory :winner, class: Player do
-    name "Winner"
+  factory :player do
+    sequence(:name) {|n| "Player #{n}" }
   end
 
-  factory :loser, class: Player do
-    name "Loser"
-  end
-
-  factory :winning_result, class: Result do
+  factory :result do
     won true
-    association :player, factory: :winner
-  end
-
-  factory :losing_result, class: Result do
-    won false
-    association :player, factory: :loser
+    association :player, factory: :player
   end
 
   factory :match do
     after(:create) do |match|
-      match.results << FactoryGirl.create(:winning_result)
-      match.results << FactoryGirl.create(:losing_result)
+      match.results << FactoryGirl.create(:result)
+      match.results << FactoryGirl.create(:result, won: false)
     end
   end
 end

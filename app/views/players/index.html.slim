@@ -1,7 +1,15 @@
 h1 Current leaderboard
 
-- if @players.empty?
-  h2 None of the players have played a game
+h2 Elo ranking
+- if @elo_players.empty?
+  p None of the players have played a game
 - else
   ol
-    = render @players
+    = render partial: "elo_player", collection: @elo_players
+
+h2 Diversity Index ranking
+- if @diversity_index_players.empty?
+  p None of the players have played a game
+- else
+  ol
+    = render partial: "diversity_index_player", collection: @diversity_index_players

@@ -24,9 +24,9 @@ describe DiversityIndexCalculator do
       let(:losing_player) { FactoryGirl.create(:player) }
 
       it "changes the player's ranking" do
-        @calculator = DiversityIndexCalculator.new(player)
+        calculator = DiversityIndexCalculator.new(player)
 
-        @calculator.update_points
+        calculator.update_points
 
         player.diversity_index_points.should be > 0
       end
@@ -43,9 +43,9 @@ describe DiversityIndexCalculator do
       let(:player) { FactoryGirl.create(:player) }
 
       it "keeps the points at zero" do
-        @calculator = DiversityIndexCalculator.new(player)
+        calculator = DiversityIndexCalculator.new(player)
 
-        @calculator.update_points
+        calculator.update_points
 
         player.diversity_index_points.should be == 0.0
       end

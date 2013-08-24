@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818213811) do
+ActiveRecord::Schema.define(version: 20130824001735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 20130818213811) do
     t.integer  "ranking"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "reached_pro",            default: false
-    t.float    "diversity_index_points", default: 0.0
+    t.boolean  "reached_pro",              default: false
+    t.float    "diversity_index_points",   default: 0.0
+    t.float    "diversity_index",          default: 0.0
+    t.float    "elo_with_diversity_index", default: 0.0
   end
 
   create_table "results", force: true do |t|

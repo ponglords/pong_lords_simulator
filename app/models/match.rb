@@ -10,6 +10,7 @@ class Match < ActiveRecord::Base
     results.each do |result|
       RankingCalculator.new(result, results.where(won: !result.won?).map(&:player), result.won?).update_ranking
       DiversityIndexCalculator.new(result.player).update_points
+      EloWithDiversityIndexCalculator.new(result.player, result.player.ranking, result.player.diversity_index).update_score
     end
   end
 end

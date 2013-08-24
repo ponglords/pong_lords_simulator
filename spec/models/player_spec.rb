@@ -4,7 +4,7 @@ describe Player do
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name) }
 
-  describe ".wins" do
+  describe "#wins" do
     it "returns the number of results where the player has won" do
       player = FactoryGirl.create(:player)
       matches = FactoryGirl.create_list(:match, 5)
@@ -19,7 +19,7 @@ describe Player do
     end
   end
 
-  describe ".losses" do
+  describe "#losses" do
     it "returns the number of results where the player has lost" do
       player = FactoryGirl.create(:player)
       matches = FactoryGirl.create_list(:match, 3)

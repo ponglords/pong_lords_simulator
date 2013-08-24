@@ -7,13 +7,14 @@ class DiversityIndexCalculator
   end
 
   def update_points
-    @player.diversity_index_points = calculate_new_score
+    @player.diversity_index = diversity_index
+    @player.diversity_index_points = new_score
     @player.save!
   end
 
   private
 
-  def calculate_new_score
+  def diversity_index
    match_ids = @player.results.pluck(:match_id)
    grouped_opponents = Result.where(match_id: match_ids)
                              .where.not(player: @player)
@@ -29,10 +30,12 @@ class DiversityIndexCalculator
 
    return 0.0 unless (total_matches * (total_matches - 1)) > 0
 
-   net_wins = @player.wins - @player.losses
-   diversity_index = 1 - (total_offset / (total_matches * (total_matches - 1)))
+   1 - (total_offset / (total_matches * (total_matches - 1)).to_f)
+  end
 
-   ((net_wins * diversity_index) * 100).round(2)
+  def new_score
+   net_wins = @player.wins - @player.losses
+   (net_wins * @player.diversity_index * 100).round(2)
   end
 
 end

@@ -11,6 +11,7 @@ class Player < ActiveRecord::Base
   scope :by_name, -> { order(:name) }
   scope :by_ranking, -> { order("ranking DESC") }
   scope :by_diversity_index_points, -> { order("diversity_index_points DESC") }
+  scope :by_elo_with_diversity_index, -> { order("elo_with_diversity_index DESC") }
   scope :with_games, -> { joins(:results).where("players.id = results.player_id").distinct }
 
 

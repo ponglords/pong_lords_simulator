@@ -13,3 +13,10 @@ h2 Diversity Index ranking
 - else
   ol
     = render partial: "diversity_index_player", collection: @diversity_index_players
+
+h2 Elo combined with diversity index
+- if @elo_with_diversity_index_players.empty?
+  p None of the players have played a game
+- else
+  ol
+    = render partial: "elo_with_diversity_index_player", collection: @elo_with_diversity_index_players

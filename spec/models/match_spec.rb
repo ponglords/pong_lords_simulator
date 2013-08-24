@@ -6,6 +6,8 @@ describe Match do
       @match = FactoryGirl.create(:match)
 
       RankingCalculator.should_receive(:new).twice { double(update_ranking: nil) }
+      DiversityIndexCalculator.should_receive(:new).twice { double(update_points: nil) }
+      EloWithDiversityIndexCalculator.should_receive(:new).twice { double(update_score: nil) }
 
       @match.save!
     end

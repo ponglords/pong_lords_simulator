@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
   PRO_RANKING = 2400
-  STARTER_BOUNDRY = 30
+  STARTER_BOUNDRY = 5
   DEFAULT_RANKING = 1000
 
   validates :name, presence: true, uniqueness: true
